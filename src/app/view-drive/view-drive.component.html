@@ -1,0 +1,42 @@
+<h2 style="color:darkblue;">Drive Details</h2>
+<!-- {{viewDrives|json}} -->
+
+<br><br>
+
+<table class="table table-bordered">
+ <thead>
+<tr>    
+        <th>Company Name</th>
+        <th>Experience requied in Yrs</th>
+        <th>CTC Offered</th>
+        <th>Joining Process</th>
+        <th>Bond in Yrs</th>
+        <th>Degignation</th>
+        <th>Education Criteria</th>
+        <th>Followup Date</th>
+        <th>Action</th>
+</tr>
+ </thead>
+
+ <tbody>
+     <tr *ngFor="let c of viewDrives">
+         <td>{{c.companyname}}</td>
+         <td>{{c.exp}}</td>
+         <td>{{c.ctc}}</td>
+         <td>{{c.joining | joiningProcess}}</td>
+         <td>{{c.bond}}</td>
+         <td>{{c.position | designation}}</td>
+         <td>{{c.education | eduCriteria}}</td>
+         <td>{{c.followup }}</td>
+         <td>
+             
+             <!-- <button  class="btn btn-primary" name="Edit" [routerLink]="['/edit',c.cid]">Edit</button>&nbsp; -->
+             <button  class="btn btn-primary" name="Edit" (click)="editDialog(c.cid)"  >Edit</button>&nbsp;
+             <button  class="btn btn-danger" name="Delete" (click)='deleteData(c.cid)'>Delete</button>
+             
+         </td>
+     </tr>
+ </tbody>
+
+
+</table>

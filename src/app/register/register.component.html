@@ -1,0 +1,16 @@
+<div>
+  <label>Password</label>
+  <input type="password" name="password" [ngModel]="user.password" 
+      required #password="ngModel">
+  <small [hidden]="password.valid || (password.pristine && !f.submitted)">
+      Password is required
+  </small>
+</div>
+<div>
+  <label>Retype password</label>
+  <input type="password" name="confirmPassword" [ngModel]="user.confirmPassword" 
+      required validateEqual="password" #confirmPassword="ngModel">
+  <small [hidden]="confirmPassword.valid ||  (confirmPassword.pristine && !f.submitted)">
+      Password mismatch
+  </small>
+</div>
